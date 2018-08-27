@@ -13,12 +13,14 @@ marcadorModulo = (function () {
         El marcador que vas a crear debe asignarse a la variable miMarcador */
         
          //mapa.setCenter(ubicacion);
-          var marker = new google.maps.Marker({
+          miMarcador = new google.maps.Marker({
           map: mapa,
           position: ubicacion,
           animation: google.maps.Animation.DROP,
           title: "Mi Marcador"
           }) 
+          console.log("El marcadro quedo asi:" + miMarcador);
+          debugger;
 
 
   }
@@ -176,6 +178,7 @@ marcadorModulo = (function () {
 
     // Función que devuelve true si ya se declaro la variable miMarcador
   function existeMiMarcador () {
+    console.log("Existe Marcador? "+ miMarcador);
     return miMarcador != undefined
   }
 
@@ -237,7 +240,7 @@ marcadorModulo = (function () {
     }
     lugaresModulo.buscarCerca(miPosicion)
         // cambio el centro del mapa a miPosicion
-        
+
     mapa.panTo(miPosicion)
   }
 
