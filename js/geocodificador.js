@@ -10,14 +10,16 @@ geocodificadorModulo = (function () {
      coordenada: la ubicación de tipo google.maps.LatLng */
      geocodificador.geocode({"address": direccion}, function(results, status){  
         if (status == 'OK') {
-          mapa.setCenter(results[0].geometry.location);
+
+          funcionALlamar(direccion, results[0].geometry.location);
+          /* mapa.setCenter(results[0].geometry.location);
           var marker = new google.maps.Marker({
               map: mapa,
               position: results[0].geometry.location,
               animation: google.maps.Animation.DROP,
-              title: direccion
-          });
-        } else {
+              title: direccion */
+          }
+          else {
           alert('Geocode was not successful for the following reason: ' + status);
         }
       })

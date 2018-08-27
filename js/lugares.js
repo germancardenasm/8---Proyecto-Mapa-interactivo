@@ -22,7 +22,15 @@ lugaresModulo = (function () {
         /* Completar la función buscarCerca  que realice la búsqueda de los lugares
     del tipo (tipodeLugar) y con el radio indicados en el HTML cerca del lugar
     pasado como parámetro y llame a la función marcarLugares. */
-
+    var radio = Number(document.getElementById("radio").value);
+    servicioLugares = new google.maps.places.PlacesService(mapa);
+    servicioLugares.nearbySearch(
+      { location: posicion,
+        radius: radio,
+        type: document.getElementById("tipoDeLugar").value
+      },
+        marcadorModulo.marcarLugares
+      )
   }
   return {
     inicializar,
