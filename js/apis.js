@@ -13,7 +13,7 @@ function inicializarMapa () {
   mapa = new google.maps.Map(document.getElementById('map'),
     {
       center: posicionCentral,
-      zoom: 12
+      zoom: 13
     }
   )
   geocodificadorModulo.inicializar()
