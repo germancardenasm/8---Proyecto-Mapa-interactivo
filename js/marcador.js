@@ -12,7 +12,7 @@ marcadorModulo = (function () {
         Este marcador debe tener un título, una animación.
         El marcador que vas a crear debe asignarse a la variable miMarcador */
         
-         //mapa.setCenter(ubicacion);
+    
           miMarcador = new google.maps.Marker({
           map: mapa,
           position: ubicacion,
