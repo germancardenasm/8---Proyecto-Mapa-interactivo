@@ -40,6 +40,7 @@ geocodificadorModulo = (function () {
         that.usaDireccion(direccion, direccionesModulo.agregarDireccionYMostrarEnMapa)
       }
     })
+    
   }
 
   return {

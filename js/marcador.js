@@ -20,7 +20,6 @@ marcadorModulo = (function () {
           title: "Mi Marcador"
           }) 
           console.log("El marcadro quedo asi:" + miMarcador);
-          debugger;
 
 
   }
