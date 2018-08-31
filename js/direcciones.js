@@ -96,7 +96,29 @@ direccionesModulo = (function () {
         /* Completar la función calcularYMostrarRutas , que dependiendo de la forma en que el
          usuario quiere ir de un camino al otro, calcula la ruta entre esas dos posiciones
          y luego muestra la ruta. */
-  }
+      
+        servicioDirecciones.route({
+          
+          origin: document.getElementById("desde").value,
+          destination: document.getElementById("hasta").value,
+          travelMode: document.getElementById("comoIr").value,
+          unitSystem: google.maps.UnitSystem.METRIC,
+          //waypoints[]: DirectionsWaypoint,
+          //optimizeWaypoints: true,
+          provideRouteAlternatives: true,
+          avoidFerries: false,
+          avoidHighways: false,
+          avoidTolls: false,
+          region: "CO"
+
+        }, function(results, status){
+          if (status == 'OK') {
+            mostradorDirecciones.setDirections(results);
+            }
+          })
+  } 
+
+
 
   return {
     inicializar,
