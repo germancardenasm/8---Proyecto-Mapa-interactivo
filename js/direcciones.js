@@ -89,6 +89,18 @@ direccionesModulo = (function () {
     })
   }
 
+  function arregloPuntosIntermedios(arrayPuntosIntermedios){
+    var puntosIntermedios = document.getElementById("puntosIntermedios").selectedOptions;
+        for(var i =0; i<puntosIntermedios.length; i++)
+        {
+          arrayPuntosIntermedios.push(
+            {
+            location: puntosIntermedios[i].text,
+            stopover: true
+            }
+          );
+        }
+  }
     // Calcula la ruta entre los puntos Desde y Hasta con los puntosIntermedios
     // dependiendo de la formaDeIr que puede ser Caminando, Auto o Bus/Subterraneo/Tren
   function calcularYMostrarRutas () {
@@ -96,15 +108,28 @@ direccionesModulo = (function () {
         /* Completar la función calcularYMostrarRutas , que dependiendo de la forma en que el
          usuario quiere ir de un camino al otro, calcula la ruta entre esas dos posiciones
          y luego muestra la ruta. */
+        //var puntosIntermedios = document.getElementById("puntosIntermedios").selectedOptions;
+        var arrayDePuntosIntermedios =[];
+        arregloPuntosIntermedios(arrayDePuntosIntermedios);
+        /* for(var i =0; i<puntosIntermedios.length; i++)
+        {
+          arrayDePuntosIntermedios.push(
+            {
+            location: puntosIntermedios[i].text,
+            stopover: true
+            }
+          );
+        } */
       
+
         servicioDirecciones.route({
           
           origin: document.getElementById("desde").value,
           destination: document.getElementById("hasta").value,
           travelMode: document.getElementById("comoIr").value,
           unitSystem: google.maps.UnitSystem.METRIC,
-          //waypoints[]: DirectionsWaypoint,
-          //optimizeWaypoints: true,
+          waypoints: arrayDePuntosIntermedios,
+          optimizeWaypoints: true,
           provideRouteAlternatives: true,
           avoidFerries: false,
           avoidHighways: false,
